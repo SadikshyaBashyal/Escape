@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <!-- Main vertical posts -->
+  <rect x="20" y="25" width="8" height="55" fill="#B22222" stroke="#8B0000" stroke-width="1"/>
+  <rect x="72" y="25" width="8" height="55" fill="#B22222" stroke="#8B0000" stroke-width="1"/>
+  
+  <!-- Crossbar (top) -->
+  <rect x="15" y="25" width="70" height="6" fill="#B22222" stroke="#8B0000" stroke-width="1"/>
+  
+  <!-- Crossbar (middle) -->
+  <rect x="18" y="45" width="64" height="5" fill="#B22222" stroke="#8B0000" stroke-width="1"/>
+  
+  <!-- Crossbar (bottom) -->
+  <rect x="18" y="70" width="64" height="5" fill="#B22222" stroke="#8B0000" stroke-width="1"/>
+  
+  <!-- Decorative cutouts -->
+  <rect x="25" y="35" width="50" height="3" fill="#8B0000"/>
+  <rect x="25" y="52" width="50" height="3" fill="#8B0000"/>
+  <rect x="25" y="75" width="50" height="3" fill="#8B0000"/>
+  
+  <!-- Ground base -->
+  <rect x="10" y="80" width="80" height="2" fill="#8B0000"/>
+</svg>

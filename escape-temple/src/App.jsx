@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from "./components/Navbar";
-import TempleRoom from "./pages/TempleRoom";
 import LandingPage from "./pages/LandingPage";
 import MapPage from "./pages/MapPage";
+import Room1Page from "./pages/Room1Page";
+import Room2Page from "./pages/Room2Page";
+import Room3Page from "./pages/Room3Page";
 // Placeholder components (to be implemented in separate files)
 const Person = ({ entering }) => (
   <div className={`person ${entering ? "entering" : ""}`}>🧑</div>
@@ -107,64 +107,9 @@ function App() {
       {/* Main page routing */}
       {page === "landing" && <LandingPage onPlay={handlePlay} />}
       {page === "map" && <MapPage completedRooms={completedRooms} onEnterRoom={handleEnterRoom} />}
-      {page === "room1" && (
-        <TempleRoom
-          showGod={true}
-          artifacts={room1Artifacts}
-          scripts={room1Scripts}
-          onArtifactClick={handleArtifactClick}
-          onScriptClick={handleScriptClick}
-        >
-          <div
-            className="question-box"
-            style={{
-              position: "absolute",
-              bottom: 30,
-              right: 30,
-              width: questionExpanded ? 320 : 120,
-              height: questionExpanded ? 140 : 40,
-              background: "#fffbe6",
-              borderRadius: 12,
-              boxShadow: "0 2px 8px #0005",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: foundClues.length === totalClues ? "pointer" : "not-allowed",
-              transition: "all 0.4s cubic-bezier(.7,0,.3,1)",
-              overflow: "hidden",
-            }}
-            onClick={handleExpandQuestion}
-          >
-            {!questionExpanded ? (
-              <span style={{ color: "#a67c52", fontWeight: 600 }}>
-                {foundClues.length === totalClues ? "Reveal Question" : "Find all clues..."}
-              </span>
-            ) : !questionAnswered ? (
-              <form onSubmit={handleAnswer} style={{ width: "100%", textAlign: "center" }}>
-                <div style={{ color: "#3a2c1a", fontWeight: 700, marginBottom: 8 }}>
-                  "What is the name of the god in this temple?"
-                </div>
-                <input
-                  type="text"
-                  value={answer}
-                  onChange={e => setAnswer(e.target.value)}
-                  style={{ padding: 6, borderRadius: 6, border: "1px solid #a67c52", width: 180 }}
-                  placeholder="Type your answer..."
-                  autoFocus
-                />
-                <button type="submit" style={{ marginLeft: 8, padding: "6px 14px", borderRadius: 6, background: "#a67c52", color: "#fff", border: "none", fontWeight: 600 }}>
-                  Submit
-                </button>
-              </form>
-            ) : (
-              <div style={{ color: "green", fontWeight: 700 }}>
-                Correct! Proceeding...
-              </div>
-            )}
-          </div>
-        </TempleRoom>
-      )}
+      {page === "room1" && <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%'}}><Room1Page onComplete={() => setPage("map")}/></div>}
+      {page === "room2" && <Room2Page onComplete={() => setPage("map")}/>} 
+      {page === "room3" && <Room3Page onComplete={() => setPage("map")}/>} 
     </div>
   );
 }

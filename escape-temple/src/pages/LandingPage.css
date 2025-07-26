@@ -1,0 +1,138 @@
+.landing-bg {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(135deg, #3a2c1a 0%, #a67c52 40%, #6e3a7a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.play-btn {
+  font-size: 2rem;
+  padding: 18px 48px;
+  border-radius: 16px;
+  background: #a67c52;
+  color: #fffbe6;
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 24px #0005;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  outline: none;
+}
+.play-btn:hover {
+  background: #6e3a7a;
+  transform: scale(1.05);
+}
+.landing-door-scene {
+  width: 340px;
+  height: 420px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: auto;
+}
+.landing-door-label {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffe4b5;
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #a67c52cc;
+  z-index: 2;
+}
+.landing-door {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 180px;
+  height: 260px;
+  background: #222;
+  border: 6px solid #a67c52;
+  border-radius: 0 0 24px 24px;
+  transform: translateX(-50%);
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+}
+.landing-door::before, .landing-door::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 100%;
+  background: #222;
+  position: absolute;
+  top: 0;
+  transition: transform 1s cubic-bezier(.7,0,.3,1);
+}
+.landing-door::before {
+  left: 0;
+  border-right: 3px solid #a67c52;
+  z-index: 3;
+  transform: translateX(0);
+}
+.landing-door::after {
+  right: 0;
+  border-left: 3px solid #a67c52;
+  z-index: 3;
+  transform: translateX(0);
+}
+.landing-door.open::before {
+  transform: translateX(-100%);
+}
+.landing-door.open::after {
+  transform: translateX(100%);
+}
+.landing-person {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  font-size: 2.5rem;
+  opacity: 0;
+  transition: left 1.2s cubic-bezier(.7,0,.3,1), opacity 0.5s;
+  z-index: 4;
+}
+.landing-person.approach {
+  left: 110px;
+  opacity: 1;
+}
+.landing-person.enter {
+  left: 170px;
+  opacity: 0;
+  transition: left 1.2s cubic-bezier(.7,0,.3,1), opacity 0.7s 0.3s;
+}
+@media (max-width: 600px) {
+  .landing-door-scene {
+    width: 98vw;
+    height: 60vw;
+    min-height: 260px;
+    max-height: 70vh;
+  }
+  .landing-door-label {
+    font-size: 1.2rem;
+    top: 18px;
+  }
+  .landing-door {
+    width: 120px;
+    height: 160px;
+  }
+  .landing-person {
+    font-size: 1.5rem;
+    left: 2vw;
+  }
+  .landing-person.approach {
+    left: 32vw;
+  }
+  .landing-person.enter {
+    left: 48vw;
+  }
+} 

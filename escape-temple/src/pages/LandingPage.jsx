@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./LandingPage.css";
-
 export default function LandingPage({ onPlay }) {
   const [stage, setStage] = useState("idle"); // idle, showDoor, personApproach, doorOpen, personEnter
-
   const handlePlay = () => {
     setStage("showDoor");
     setTimeout(() => setStage("personApproach"), 700);
@@ -25,4 +23,4 @@ export default function LandingPage({ onPlay }) {
       )}
     </div>
   );
-} 
+}
